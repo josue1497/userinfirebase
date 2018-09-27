@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous">
+        <title>Prueba Login con Firebase</title>
+        <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+        <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBvN0SphkggCX0MigNBqPqTpv8n9F14CRc",
+    authDomain: "personal-site-jmartinez.firebaseapp.com",
+    databaseURL: "https://personal-site-jmartinez.firebaseio.com",
+    projectId: "personal-site-jmartinez",
+    storageBucket: "personal-site-jmartinez.appspot.com",
+    messagingSenderId: "1090925385275"
+  };
+  firebase.initializeApp(config);
+</script>
+    </head>
+    <body>
+        <div class="card bg-info">
+            <div class="container-fluid col-form-label">
+                <div class="form-group float-left w-25 m-2">
+                    <label for="User" class="text-light">Usuario</label><br>
+                    <input id="User" class="form-control" type="email">
+                </div>
+                <div class="form-group float-left w-25 m-2">
+                    <label for="Password" class="text-light">Contraseña</label><br>
+                    <input id="Password" class="form-control" type="password">
+                </div>
+                <div class="form-group float-left w-25 m-4 pt-3">
+                    <button class="btn btn-info col-md" id="send" onclick="view()">Ingresar</button>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="js/source.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    </body>
+</html>
