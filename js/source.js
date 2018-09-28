@@ -47,7 +47,9 @@ function ingresar() {
 
 function observador() {
   firebase.auth().onAuthStateChanged(function(user) {
+    var contenido = document.getElementById("contenido");
     if (user) {
+      console.log("Existe usuario Activo");
       // User is signed in.
       var displayName = user.displayName;
       var email = user.email;
@@ -56,12 +58,30 @@ function observador() {
       var isAnonymous = user.isAnonymous;
       var uid = user.uid;
       var providerData = user.providerData;
+      console.log("Existe usuario Activo");
+      showContent(contenido);
       // ...
     } else {
       // User is signed out.
       // ...
+      console.log("No Existe usuario Activo");
     }
   });
 }
- 
+
 observador();
+
+function showContent(content) {
+  content.className = "card";
+}
+function cerrar() {
+  firebase
+    .auth()
+    .signOut()
+    .then(function() {
+      console.log('saliendo');
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+}
