@@ -1,86 +1,71 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-            crossorigin="anonymous">
-        <title>Prueba Login con Firebase</title>
-        <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
-        <script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBvN0SphkggCX0MigNBqPqTpv8n9F14CRc",
-    authDomain: "personal-site-jmartinez.firebaseapp.com",
-    databaseURL: "https://personal-site-jmartinez.firebaseio.com",
-    projectId: "personal-site-jmartinez",
-    storageBucket: "personal-site-jmartinez.appspot.com",
-    messagingSenderId: "1090925385275"
-  };
-  firebase.initializeApp(config);
-</script>
-    </head>
-    <body>
 
-        <div class="card bg-info">
-            <h4 class="text-light p-2 text-center">Registrar Usuarios</h4>
-            <div class="container-fluid clearfix col-form-label">
-                <div class="form-group float-left w-25 m-2">
-                    <label for="email" class="text-light">Usuario</label><br>
-                    <input id="email" class="form-control" type="email">
-                </div>
-                <div class="form-group float-left w-25 m-2">
-                    <label for="newpass" class="text-light">Contraseña</label><br>
-                    <input id="newpass" class="form-control" type="password">
-                </div>
-                <div class="form-group float-right w-25 m-4 pt-3">
-                    <button class="btn btn-info col-md" id="registrar"
-                        onclick="registrar()">Registrar</button>
-                </div>
-                <p class="font-italic text-danger float-right" id="error"></p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Prueba Login con Firebase</title>
+    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBvN0SphkggCX0MigNBqPqTpv8n9F14CRc",
+            authDomain: "personal-site-jmartinez.firebaseapp.com",
+            databaseURL: "https://personal-site-jmartinez.firebaseio.com",
+            projectId: "personal-site-jmartinez",
+            storageBucket: "personal-site-jmartinez.appspot.com",
+            messagingSenderId: "1090925385275"
+        };
+        firebase.initializeApp(config);
+    </script>
+</head>
+
+<body>
+    <!--
+    <div class="card bg-info">
+        <h4 class="text-light p-2 text-center">Registrar Usuarios</h4>
+        <div class="container-fluid clearfix col-form-label">
+            <div class="form-group float-left w-25 m-2">
+                <label for="email" class="text-light">Usuario</label><br>
+                <input id="email" class="form-control" type="email">
             </div>
+            <div class="form-group float-left w-25 m-2">
+                <label for="newpass" class="text-light">Contraseña</label><br>
+                <input id="newpass" class="form-control" type="password">
+            </div>
+            <div class="form-group float-right w-25 m-4 pt-3">
+                <button class="btn btn-info col-md" id="registrar" onclick="registrar()">Registrar</button>
+            </div>
+            <p class="font-italic text-danger float-right" id="error"></p>
         </div>
-
-        <div class="card bg-dark p-2 mt-3">
-            <h4 class="text-light text-center">Ingresar Usuarios</h4>
-            <div class="container-fluid clearfix col-form-label">
-                <div class="form-group float-left w-25 m-2">
-                    <label for="User" class="text-light">Usuario</label><br>
-                    <input id="User" class="form-control" type="email">
-                </div>
-                <div class="form-group float-left w-25 m-2">
-                    <label for="Password" class="text-light">Contraseña</label><br>
-                    <input id="Password" class="form-control" type="password">
-                </div>
-                <div class="form-group float-right w-25 m-4 pt-3">
-                    <button class="btn btn-dark col-md" id="send"
-                        onclick="ingresar()">Ingresar</button>
-                </div>
+    </div>
+-->
+    <div class="container-fluid clearfix mr-0 ml-0">
+        <nav class="navbar fixed-top bg-light bg-dark m-0 ">
+            <a class="navbar-brand">
+                <h5 class="text-light text-left pr-2 float-left">Ingresar Usuarios</h5>
+            </a>
+            <div class="form-inline">
+                <input id="User" class="form-control mr-sm-2 float-right" type="email" placeholder="E-mail" aria-label="E-mail">
+                <input id="Password" class="form-control mr-sm-2 float-right" type="password" placeholder="Password">
+                <button class="btn btn-outline-light my-2 my-sm-0 float-right" type="submit" id="send" onclick="ingresar()">Ingresar</button>
                 <p class="font-italic text-danger float-right" id="error2"></p>
             </div>
-        </div>
+        </nav>
 
-
-        <div class="card d-none" id="contenido">
-            <div class="card-body">
-                <h5 class="card-title">Inicio de Session Exitoso!</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Excepturi minima enim consectetur pariatur
-                    eligendi, perspiciatis, iusto numquam ea deleniti impedit
-                    beatae molestiae nesciunt recusandae fuga distinctio modi
-                    saepe provident sit.</p>
-            </div>
-            <div class="card-footer"> <button class="btn btn-dark"
-                    id="sessionClose" onclick="cerrar()">Cerrar sesión</button>
-            </div>
+        <div class="card justify-content-center m-5" id="contenido">
 
         </div>
+    </div>
 
 
-        <script src="js/source.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
-    </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js "></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js " integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js " integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy " crossorigin="anonymous "></script>
+    <script src="js/source.js "></script>
+</body>
+
 </html>
